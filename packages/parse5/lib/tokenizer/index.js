@@ -1203,8 +1203,8 @@ class Tokenizer {
             this._unconsume();
         } else if (cp === $.EQUALS_SIGN) {
             this._leaveAttrName(BEFORE_ATTRIBUTE_VALUE_STATE);
-        } else if (isAsciiUpper(cp)) {
-            this.currentAttr.name += toAsciiLowerChar(cp);
+            // } else if (isAsciiUpper(cp)) { Don't lowercase to support ng templates
+            //     this.currentAttr.name += toAsciiLowerChar(cp);
         } else if (cp === $.QUOTATION_MARK || cp === $.APOSTROPHE || cp === $.LESS_THAN_SIGN) {
             this._err(ERR.unexpectedCharacterInAttributeName);
             this.currentAttr.name += toChar(cp);
